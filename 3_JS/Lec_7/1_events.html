@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   #btn-event-helper{
+    height: 100px;
+    width: 100px;
+    border: 2px solid red;
+   } 
+</style>
+<body>
+    <h2>Events</h2>
+    <!-- 
+    Mouse : click, hover, scroll, right click , left click, dbclick
+    Keyboard : keypress
+    Touch  : 
+    -->
+
+    <div id="btn-event-helper"></div>
+
+    <button id="btn-events">Change BG
+    </button>
+
+<h2>keyboard events</h2>
+    <input type="text">
+    <p></p>
+
+    <script>
+// task
+        // -> btn -> hover : lightblue
+        // -> btn -> right click : lightred
+        // -> btn -> left click : lightcyan
+
+        let button=document.querySelector("button");
+        button.addEventListener("mouseenter",function(){
+                let box=document.querySelector("div");
+                box.style.backgroundColor="lightblue";
+            })
+
+             button.addEventListener("mouseout",
+            function(){
+               let box=document.querySelector("div");
+
+                box.style.backgroundColor="transparent"; 
+            }
+        )
+
+           
+            
+        button.addEventListener("contextmenu",
+            function(){
+               let box=document.querySelector("div");
+
+                box.style.backgroundColor="lightred"; 
+            }
+        )
+
+         button.addEventListener("click",
+            function(){
+               let box=document.querySelector("div");
+
+                box.style.backgroundColor="lightcyan"; 
+            }
+        )
+
+
+let input=document.querySelector("input");
+let str="";
+input.addEventListener("keydown",function(e){
+    console.log("event object",e.key);
+    let p=document.querySelector("p");
+    str=str+e.key;
+    p.textContent=str;
+    // p.textContent=e.target.value;
+})
+
+
+
+        
+
+      
+        
+
+
+    </script>
+
+</body>
+</html>
